@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A demo student performance prediction project.">
+  <title>Student Performance Predictor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">MACHINE LEARNING • STUDENT PROJECT</div>
+      <h1>Student Performance <span>Predictor</span></h1>
+      <p>Explore how study habits and past results relate to an estimated exam score.</p>
+    </header>
+
+    <section class="layout">
+      <form id="predict-form" class="panel">
+        <h2>Student details</h2>
+        <p class="muted">Enter values to generate a demo estimate.</p>
+
+        <label for="study_hours">Daily study hours <span>0–16 hours</span></label>
+        <input id="study_hours" name="study_hours" type="number" min="0" max="16" step="0.5" value="3" required>
+
+        <label for="attendance">Attendance <span>0–100%</span></label>
+        <input id="attendance" name="attendance" type="number" min="0" max="100" step="1" value="85" required>
+
+        <label for="previous_score">Previous exam score <span>0–100</span></label>
+        <input id="previous_score" name="previous_score" type="number" min="0" max="100" step="1" value="70" required>
+
+        <label for="sleep_hours">Sleep per night <span>0–24 hours</span></label>
+        <input id="sleep_hours" name="sleep_hours" type="number" min="0" max="24" step="0.5" value="8" required>
+
+        <button id="submit-button" type="submit">Predict performance <span aria-hidden="true">→</span></button>
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+      </form>
+
+      <section class="panel result-panel" aria-labelledby="result-heading">
+        <div class="result-icon" aria-hidden="true">✦</div>
+        <h2 id="result-heading">Your prediction</h2>
+        <p class="muted">Your estimated score will appear here.</p>
+        <div class="score"><span id="score-value">—</span><small>/ 100</small></div>
+        <div class="meter"><div id="score-meter"></div></div>
+        <h3 id="interpretation">Ready when you are</h3>
+        <p id="notice" class="notice">This is a demonstration model trained on synthetic data, not a validated academic assessment.</p>
+        <div class="tip"><strong>Remember</strong><br>Predictions are estimates, not guarantees. Real outcomes depend on many factors.</div>
+      </section>
+    </section>
+
+    <section class="panel history-panel">
+      <div class="history-heading">
+        <div><h2>Recent predictions</h2><p class="muted">Up to 20 entries from the backend's SQLite database.</p></div>
+        <button id="refresh-history" class="secondary" type="button">Refresh</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Time</th><th>Study hours</th><th>Attendance</th><th>Previous score</th><th>Prediction</th></tr></thead>
+          <tbody id="history-body"><tr><td colspan="5">Connect to the backend to load history.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <footer>Built with HTML, CSS, JavaScript, Flask and scikit-learn.</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
