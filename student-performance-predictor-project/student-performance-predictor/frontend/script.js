@@ -1,5 +1,5 @@
 // Set this to your deployed Render URL, with no trailing slash.
-const API_BASE_URL = "https://YOUR-RENDER-SERVICE.onrender.com";
+const API_BASE_URL = "https://student-performance-predictor-api-ws5h.onrender.com/";
 
 const form = document.querySelector("#predict-form");
 const button = document.querySelector("#submit-button");
